@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="PhishGuard Help — Learn about phishing, how to use PhishGuard, and how to stay safe online.">
+    <title>Help — PhishGuard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="PhishGuard Help — Learn about phishing, how to use PhishGuard, and how to stay safe online.">
+    <title>Help — PhishGuard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Navigation -->
+        <nav class="navbar fade-in-up">
+            <a href="/" class="navbar-brand">
+                <span class="shield-icon">🛡️</span>
+                PhishGuard
+            </a>
+            <ul class="navbar-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/url-scanner">Website Intelligence</a></li>
+                <li><a href="/email-scanner">Email Scanner</a></li>
+                <li><a href="/help" class="active">Help</a></li>
+            </ul>
+        </nav>
+
+        <!-- Page Header -->
+        <section class="hero fade-in-up fade-in-up-delay-1" style="padding-bottom: 1rem;">
+            <div class="hero-badge">
+                <span>📖</span>
+                Documentation
+            </div>
+            <h1>Help Center</h1>
+            <p>Everything you need to know about using PhishGuard and staying safe from phishing attacks.</p>
+        </section>
+
+        <!-- How to Use -->
+        <div class="help-section fade-in-up fade-in-up-delay-2">
+            <div class="card">
+                <h2>🚀 How to Use PhishGuard</h2>
+
+                <h3>Website Intelligence Scanner</h3>
+                <ol>
+                    <li>Click <strong>"Website Intelligence"</strong> in the navigation bar, or click the <strong>"Website Intelligence Scanner"</strong> card on the homepage.</li>
+                    <li>Enter or paste a target website URL in the input field.</li>
+                    <li>Click the <strong>"Start Comprehensive Scan"</strong> button.</li>
+                    <li>PhishGuard will launch a multi-threaded security scan and display a comprehensive dashboard:
+                        <ul>
+                            <li><strong>Phishing Verdict:</strong> An overall risk rating (Low, Medium, High, or Critical) calculated from multiple analysis modules.</li>
+                            <li><strong>Detailed Panels:</strong> Real-time results from ML prediction, SSL certificate checks, WHOIS domain data, DNS/hosting analysis, VirusTotal scanning, and technology stack fingerprinting.</li>
+                            <li><strong>PDF Report:</strong> Click <strong>"Download PDF Report"</strong> at the bottom of the dashboard to save a branded security report.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Email Scanner</h3>
+                <ol>
+                    <li>Click <strong>"Email Scanner"</strong> in the navigation bar, or click the <strong>"Scan Email Content"</strong> card on the homepage.</li>
+                    <li>Copy and paste the suspicious email content into the text area.</li>
+                    <li>Click the <strong>"Scan Email"</strong> button.</li>
+                    <li>PhishGuard will check for social engineering tactics and flag suspicious indicators:
+                        <ul>
+                            <li>Urgency and panic-inducing language ("act now", "limited time")</li>
+                            <li>Credential harvesting attempts ("verify your account", "update password")</li>
+                            <li>Coercive threat-based alerts ("account will be suspended")</li>
+                            <li>Reward-based lures ("prize", "free gift")</li>
+                            <li>Impersonation greetings ("dear customer", "technical support")</li>
+                            <li>Suspicious link prompts ("click here", "see attachment")</li>
+                            <li>Typosquatting/brand misspellings (e.g. "paypa1.com", "amaz0n.com")</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Website Intelligence Features -->
+        <div class="help-section fade-in-up fade-in-up-delay-3">
+            <div class="card">
+                <h2>🌐 Website Intelligence & Security Features</h2>
+                
+                <h3>🤖 Machine Learning Phishing Detection</h3>
+                <p>PhishGuard runs a Random Forest classifier trained on URL structural features (such as URL length, dot count, hyphens, subdomains, directory slashes, and suspicious keywords) to determine if a domain mimics a known phishing page.</p>
+
+                <h3>🌐 Domain WHOIS Intelligence</h3>
+                <p>We retrieve registration records to analyze domain age and ownership:</p>
+                <ul>
+                    <li><strong>Domain Age:</strong> Checks if the domain is newly registered. Attackers commonly use fresh domains (&lt; 30-90 days old) to avoid blocklists.</li>
+                    <li><strong>Registrar & Expiry:</strong> Reveals who sells the domain and its remaining lifespan. Short expiration times are often a red flag.</li>
+                </ul>
+
+                <h3>🔒 SSL Certificate Verification</h3>
+                <p>Connects directly to the website to check its SSL certificate status:</p>
+                <ul>
+                    <li><strong>Status & Issuer:</strong> Detects if the connection is encrypted, expired, self-signed, or invalid.</li>
+                    <li><strong>Trust Factor:</strong> Self-signed or expired certificates are strong indicators of a malicious, compromised, or neglected server.</li>
+                </ul>
+
+                <h3>🦠 VirusTotal Threat Scan</h3>
+                <p>PhishGuard queries the VirusTotal database to cross-examine the URL across dozens of antivirus engines, domain reputation services, and malware blocklists, showing dynamic vendor status and community feedback.</p>
+
+                <h3>🗺️ DNS & Hosting Analysis</h3>
+                <p>Retrieves underlying network configuration records: A (IPv4), AAAA (IPv6), NS, MX (Mail), TXT, SPF, and DMARC. It also checks server location and hosting providers to identify hosting anomalously located on temporary datacenters.</p>
+
+                <h3>💻 Technology Stack Detection</h3>
+                <p>Checks HTTP response headers and HTML source footprints to fingerprint technologies running the website, such as web servers (Apache, Nginx), frameworks, CMS (WordPress), and libraries, building a profile of the target.</p>
+            </div>
+        </div>
+
+        <!-- What is Phishing -->
+        <div class="help-section fade-in-up fade-in-up-delay-3">
+            <div class="card">
+                <h2>🎣 What is Phishing?</h2>
+                <p>
+                    <strong>Phishing</strong> is a type of social engineering cyberattack where attackers disguise
+                    themselves as
+                    trustworthy entities to trick individuals into revealing sensitive information such as passwords,
+                    credit card numbers, or personal data.
+                </p>
+                <p style="margin-top: 0.8rem;">
+                    Phishing is one of the most common and effective cyber threats, responsible for billions of dollars
+                    in losses worldwide every year. Attacks can come through emails, text messages, websites, or even
+                    phone calls.
+                </p>
+
+                <h3>Common Types of Phishing</h3>
+                <ul>
+                    <li><strong>Email Phishing</strong> — Mass emails impersonating legitimate organizations.</li>
+                    <li><strong>Spear Phishing</strong> — Targeted attacks against specific individuals or companies.
+                    </li>
+                    <li><strong>Whaling</strong> — Phishing attacks targeting high-profile executives.</li>
+                    <li><strong>Smishing</strong> — Phishing via SMS text messages.</li>
+                    <li><strong>Vishing</strong> — Phishing through voice calls.</li>
+                    <li><strong>Clone Phishing</strong> — Duplicating legitimate emails with malicious links.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- How Phishing Works -->
+        <div class="help-section fade-in-up fade-in-up-delay-3">
+            <div class="card">
+                <h2>⚙️ How Phishing Works</h2>
+                <p>Phishing attacks typically follow a structured pattern:</p>
+                <ol>
+                    <li><strong>Bait Creation</strong> — The attacker crafts a convincing message or website that mimics
+                        a trusted entity (bank, social media, company).</li>
+                    <li><strong>Distribution</strong> — The phishing bait is sent to potential victims through email,
+                        SMS, social media, or fake websites.</li>
+                    <li><strong>Deception</strong> — The victim is tricked into clicking a link, opening an attachment,
+                        or providing personal information.</li>
+                    <li><strong>Data Harvesting</strong> — The attacker collects the victim's credentials, financial
+                        data, or personal information.</li>
+                    <li><strong>Exploitation</strong> — Stolen data is used for identity theft, unauthorized access,
+                        financial fraud, or sold on the dark web.</li>
+                </ol>
+
+                <h3>Red Flags to Watch For</h3>
+                <ul>
+                    <li>Urgent or threatening language ("Your account will be closed!")</li>
+                    <li>Requests for personal or financial information</li>
+                    <li>Suspicious or misspelled sender addresses</li>
+                    <li>Generic greetings ("Dear Customer" instead of your name)</li>
+                    <li>Unexpected attachments or links</li>
+                    <li>Too-good-to-be-true offers ("You've won $1,000,000!")</li>
+                    <li>Mismatched URLs (hover to check before clicking)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Safety Tips -->
+        <div class="help-section fade-in-up fade-in-up-delay-4">
+            <div class="card">
+                <h2>🔒 Safety Tips</h2>
+                <ul>
+                    <li><strong>Verify the sender</strong> — Always check the email address or source carefully before
+                        responding.</li>
+                    <li><strong>Don't click suspicious links</strong> — Hover over links to preview the URL before
+                        clicking. If in doubt, navigate to the website directly.</li>
+                    <li><strong>Enable Two-Factor Authentication (2FA)</strong> — Add an extra layer of protection to
+                        your accounts.</li>
+                    <li><strong>Keep software updated</strong> — Install the latest security patches for your operating
+                        system, browser, and applications.</li>
+                    <li><strong>Use strong, unique passwords</strong> — Use a password manager to generate and store
+                        complex passwords.</li>
+                    <li><strong>Be skeptical of urgency</strong> — Legitimate companies rarely demand immediate action
+                        via email.</li>
+                    <li><strong>Report suspicious emails</strong> — Forward phishing emails to your IT department or
+                        email provider.</li>
+                    <li><strong>Educate yourself and others</strong> — Stay informed about the latest phishing
+                        techniques and share knowledge with colleagues and family.</li>
+                    <li><strong>Use security tools</strong> — Use tools like PhishGuard to quickly check suspicious URLs
+                        and emails.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="help-section fade-in-up fade-in-up-delay-4">
+            <div class="card">
+                <h2>📋 Disclaimer</h2>
+                <div class="disclaimer-box">
+                    <p>
+                        ⚠️ This tool is for <strong>educational and cybersecurity awareness purposes only</strong>.
+                        PhishGuard is not a replacement for professional cybersecurity solutions. While PhishGuard
+                        uses machine learning and heuristic analysis to identify potential phishing threats, no
+                        automated tool is 100% accurate. Always exercise caution and use multiple layers of
+                        security to protect yourself online. The creators of PhishGuard are not responsible
+                        for any damages or losses resulting from the use of this tool.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Developed by Siva Sankar &ndash; PhishGuard Security Tool</p>
+            <p style="margin-top: 0.3rem;">For educational and cybersecurity awareness purposes only.</p>
+        </footer>
+
+    </div>
+</body>
+
+</html>
