@@ -412,25 +412,26 @@ The application features a **cybersecurity dark theme** with the following desig
 
 ---
 
-## 🌐 Deployment on Render
+## 🌐 Deployment on Railway
 
-PhishGuard is pre-configured for one-click deployment on **Render**:
+PhishGuard is deployed on Railway Cloud Platform.
 
-1. Push the project to a **GitHub** repository.
-2. Create a new **Web Service** on [Render](https://render.com).
-3. Connect your GitHub repository.
-4. Render will automatically detect the `Procfile` and `requirements.txt`.
-5. The app will be deployed and accessible via a public URL.
+### Live Demo
+https://phishguard-siva.up.railway.app
 
-> **Note:** PhishGuard uses dynamic port binding via the `PORT` environment variable (`os.environ.get('PORT', 5000)`) for seamless cloud deployment.
+### Deployment Steps
 
-### Procfile Configuration
+1. Push the project to GitHub.
+2. Create a new project on Railway.
+3. Connect the GitHub repository.
+4. Railway automatically detects the Python application.
+5. The application is deployed and accessible through a public URL.
 
-```
-web: gunicorn app:app
-```
+### Deployment Platform
+- Railway Cloud
+- Automatic GitHub Deployments
+- Production WSGI Server (Gunicorn)
 
----
 
 ## 🧪 Testing & Results
 
