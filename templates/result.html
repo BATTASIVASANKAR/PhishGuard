@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="PhishGuard URL scan result — See if the analyzed URL is safe or a phishing threat.">
+    <title>Scan Result — PhishGuard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Navigation -->
+        <nav class="navbar fade-in-up">
+            <a href="/" class="navbar-brand">
+                <span class="shield-icon">🛡️</span>
+                PhishGuard
+            </a>
+            <ul class="navbar-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/url-scanner" class="active">Website Intelligence</a></li>
+                <li><a href="/email-scanner">Email Scanner</a></li>
+                <li><a href="/help">Help</a></li>
+            </ul>
+        </nav>
+
+        <!-- Result -->
+        <div class="result-container fade-in-up fade-in-up-delay-1">
+            {% if is_phishing %}
+            <div class="result-card danger">
+                <div class="result-icon">⚠️</div>
+                <div class="result-title">Phishing URL Detected</div>
+
+                <!-- Risk Badge -->
+                <div class="risk-badge risk-{{ risk_level|lower }}">
+                    {% if risk_level == 'High' %}🔴{% elif risk_level == 'Medium' %}🟠{% else %}🟢{% endif %}
+                    Risk Level: {{ risk_level }}
+                </div>
+
+                <div class="result-subtitle">This URL shows signs of a phishing attempt. Do not proceed.</div>
+
+                <!-- Explanation -->
+                {% if explanation %}
+                <div class="explanation-text">{{ explanation }}</div>
+                {% endif %}
+
+                <div class="result-url">{{ url }}</div>
+
+                <!-- Detected Patterns -->
+                {% if findings %}
+                <div class="indicators-section">
+                    <h3>Suspicious Patterns Detected</h3>
+                    {% for finding in findings %}
+                      {% if 'enabled' in finding or 'detected' in finding or 'Secure' in finding %}
+                      <span class="indicator-tag safe-tag" style="background: rgba(34, 197, 94, 0.1); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.2);">✓ {{ finding }}</span>
+                      {% else %}
+                      <span class="indicator-tag">🚩 {{ finding }}</span>
+                      {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="result-actions">
+                    <a href="/url-scanner" class="btn btn-primary">🔍 Scan Another URL</a>
+                    <a href="/help" class="btn btn-secondary">🆘 Learn More</a>
+                </div>
+            </div>
+            {% else %}
+            <div class="result-card safe">
+                <div class="result-icon">✅</div>
+                <div class="result-title">Safe URL</div>
+
+                <!-- Risk Badge -->
+                <div class="risk-badge risk-{{ risk_level|lower }}">
+                    {% if risk_level == 'High' %}🔴{% elif risk_level == 'Medium' %}🟠{% else %}🟢{% endif %}
+                    Risk Level: {{ risk_level }}
+                </div>
+
+                <div class="result-subtitle">This URL appears to be legitimate. Always stay vigilant.</div>
+
+                <!-- Explanation -->
+                {% if explanation %}
+                <div class="explanation-text">{{ explanation }}</div>
+                {% endif %}
+
+                <div class="result-url">{{ url }}</div>
+
+                <!-- Detected Patterns (may still show minor findings even for safe URLs) -->
+                {% if findings %}
+                <div class="indicators-section">
+                    <h3>Notes</h3>
+                    {% for finding in findings %}
+                      {% if 'enabled' in finding or 'detected' in finding or 'Secure' in finding %}
+                      <span class="indicator-tag safe-tag" style="background: rgba(34, 197, 94, 0.1); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.2);">✓ {{ finding }}</span>
+                      {% else %}
+                      <span class="indicator-tag warning-tag">⚡ {{ finding }}</span>
+                      {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="result-actions">
+                    <a href="/url-scanner" class="btn btn-primary">🔍 Scan Another URL</a>
+                    <a href="/help" class="btn btn-secondary">🆘 Learn More</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer fade-in-up fade-in-up-delay-2">
+            <p>Developed by Siva Sankar &ndash; PhishGuard Security Tool</p>
+            <p style="margin-top: 0.3rem;">For educational and cybersecurity awareness purposes only.</p>
+        </footer>
+
+    </div>
+</body>
+
+</html>
